@@ -13,7 +13,7 @@ async function request(e, input) {
 
   try {
     // Falsy spell input:
-    const url = 'https://www.dnd5eapi.co/api/spells/' + input.toLowerCase();
+    const url = 'https://www.dnd5eapi.co/api/spells/' + input.toLowerCase().replace(/\s+/g, '-');
     const response = await fetch(url);
 
     if (!response.ok) {
