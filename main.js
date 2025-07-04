@@ -1,12 +1,20 @@
 // DND API SEARCH MODEL
+// v1.0.2
 
 const results = document.querySelector("#results");
 
-class RequestTextLook {
+class RequestText {
    constructor(text) {
       const para = document.createElement('p');
       para.textContent = text;
       results.appendChild(para);
+   }
+}
+class RequestTextStrong {
+   constructor(text) {
+      const Strong = document.createElement('strong');
+      Strong.textContent = text;
+      results.appendChild(Strong);
    }
 }
 
@@ -25,8 +33,33 @@ async function request(e, input) {
       const result = await response.json();
       
       Object.entries(result).forEach(([key, value]) => {
+         // Clean data:
          let resultFormat = Array.isArray(value) ? value.join(', ') : typeof value === 'object' && value !== null ? JSON.stringify(value, null, 2) : value
-         new RequestTextLook(`${key}: ${resultFormat}`);
+         switch (key) {
+            case 'name':
+               new RequestTextStrong(key);
+               new RequestText(resultFormat);
+               break;
+            case 'desc':
+               new RequestTextStrong(key);
+               new RequestText(resultFormat);
+               break;
+            case 'higher_level':
+               new RequestTextStrong(key);
+               new RequestText(resultFormat);
+               break;
+            case 'range':
+               new RequestTextStrong(key);
+               new RequestText(resultFormat);
+               break;
+            case 'level':
+               new RequestTextStrong(key);
+               new RequestText(resultFormat);
+               break;
+            default:
+               break;
+         }
+         
       });
 
       return result;
