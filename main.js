@@ -1,7 +1,8 @@
 // DND API SEARCH MODEL
-// v1.0.2
+// v1.1.0
 
 const results = document.querySelector("#results");
+const hr = document.createElement('hr');
 
 class RequestText {
    constructor(text) {
@@ -12,9 +13,9 @@ class RequestText {
 }
 class RequestTextStrong {
    constructor(text) {
-      const Strong = document.createElement('strong');
-      Strong.textContent = text;
-      results.appendChild(Strong);
+      const h3 = document.createElement('h3');
+      h3.textContent = text;
+      results.appendChild(h3);
    }
 }
 
@@ -59,9 +60,7 @@ async function request(e, input) {
             default:
                break;
          }
-         
       });
-
       return result;
    } catch (error) {
       // Falsy spell input:

@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document And Dragons And Dungeons</title>
     <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Skills so far: HTML, JavaScript, Postman -->
     <meta name="keywords" content="Skills include, HTML, JavaScript, Postman">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- BEGIN VIEWER -->
-    <p>dnd now!</p>
-    <h1>Welcome, fren</h1>
-    <h2>Let's see, I do think I have something for that!</h2>
-    <section id="requestSect">
+    <section class="hero-banner">
+        <p>dnd now!</p>
+        <h1>Welcome, fren</h1>
+        <h2>Let's see, I do think I have something for that!</h2>
+    </section>
+    <section id="requestSect" class="request-container">
         <form action="submit">
             <label for="input">
-                Hollup lets see; Enter what u want lol...
+                Enter spell
                 <input name="input" id="requestInput" type="text" placeholder="Enter spell name">
             </label>
         </form>
     </section>
-    <section id="results">
+    <section id="results" class="results-container">
         
     </section>
     <script src="./main.js" async></script>
