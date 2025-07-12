@@ -1,8 +1,7 @@
-// DND API SEARCH MODEL
-// v1.1.0
+// DND API SEARCH CONTROLLER
+// v1.2.0
 
-const results = document.querySelector("#results");
-const hr = document.createElement('hr');
+const results = document.querySelector('#results');
 
 class RequestText {
    constructor(text) {
@@ -28,7 +27,7 @@ async function request(e, input) {
       const response = await fetch(url);
 
       if (!response.ok) {
-         throw new Error("Spell not found");
+         throw new Error('Spell not found');
       }
 
       const result = await response.json();
@@ -38,29 +37,19 @@ async function request(e, input) {
          let resultFormat = Array.isArray(value) ? value.join(', ') : typeof value === 'object' && value !== null ? JSON.stringify(value, null, 2) : value
          switch (key) {
             case 'name':
-               new RequestTextStrong(key);
-               new RequestText(resultFormat);
-               break;
             case 'desc':
-               new RequestTextStrong(key);
-               new RequestText(resultFormat);
-               break;
             case 'higher_level':
-               new RequestTextStrong(key);
-               new RequestText(resultFormat);
-               break;
             case 'range':
-               new RequestTextStrong(key);
-               new RequestText(resultFormat);
-               break;
             case 'level':
-               new RequestTextStrong(key);
+               new RequestTextStrong(key.replace(/_/g, ' '));
                new RequestText(resultFormat);
                break;
             default:
                break;
          }
       });
+      const hr = document.createElement('hr');
+      results.appendChild(hr);
       return result;
    } catch (error) {
       // Falsy spell input:
@@ -69,7 +58,7 @@ async function request(e, input) {
    }
 }
 
-document.addEventListener("submit", (e) => {
+document.addEventListener('submit', (e) => {
    const input = document.getElementById('requestInput').value;
    request(e, input);
 });

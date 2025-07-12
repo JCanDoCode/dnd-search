@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document And Dragons And Dungeons</title>
     <meta name="robots" content="noindex">
+    <link rel="icon" href="./media/img/dnd-spell-search-icon.png">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <!-- Skills so far: HTML, JavaScript, Postman -->
@@ -14,23 +15,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- BEGIN VIEWER -->
-    <section class="hero-banner">
-        <p>dnd now!</p>
+    <section id="requestSect" class="request-container">
         <h1>Welcome, fren</h1>
         <h2>Let's see, I do think I have something for that!</h2>
-    </section>
-    <section id="requestSect" class="request-container">
         <form action="submit">
             <label for="input">
                 Enter spell
                 <input name="input" id="requestInput" type="text" placeholder="Enter spell name">
             </label>
         </form>
+        <footer>&copy; <span id="year"></span> Josel Canlas</footer>
     </section>
     <section id="results" class="results-container">
         
     </section>
-    <script src="./main.js" async></script>
+    <script src="./js/main.js" async></script>
+    <script src="./js/year.js"></script>
 </body>
 </html>
