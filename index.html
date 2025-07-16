@@ -16,15 +16,19 @@
 </head>
 <body>
     <section id="requestSect" class="request-container">
-        <h1>Welcome, fren</h1>
-        <h2>Let's see, I do think I have something for that!</h2>
+        <h1>DnD Search</h1>
         <form action="submit">
-            <label for="input">
+            <label for="requestInput">
                 Enter spell
-                <input name="input" id="requestInput" type="text" placeholder="Enter spell name">
+                <input name="requestInput" id="requestInput" type="text" placeholder="Enter spell name">
             </label>
+            <p id="errorText" class="error-text"></p>
         </form>
-        <footer>&copy; <span id="year"></span> Josel Canlas</footer>
+        <strong class="results-nav-title">Jump to search result:</strong>
+        <nav id="resultsNav" class="results-nav">
+
+        </nav>
+        <footer>&copy; <span id="year"></span> Josel Canlas<br>API from <a href="https://www.dnd5eapi.co/" target="_blank">dnd5eapi.co</a></footer>
     </section>
     <section id="results" class="results-container">
         
