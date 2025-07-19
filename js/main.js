@@ -2,7 +2,8 @@
 // v1.2.0
 
 const results = document.querySelector('#results');
-const resultsNav = document.querySelector('#resultsNav')
+const resultsNav = document.querySelector('#resultsNav');
+const errText = document.querySelector('#errorText');
 let entry = 0;
 
 class RequestText {
@@ -26,7 +27,6 @@ async function request(e, input) {
    e.preventDefault(); // prevent form submission default behavior
 
    try {
-      // Falsy spell input:
       const url = 'https://www.dnd5eapi.co/api/spells/' + input.toLowerCase().replace(/\s+/g, '-');
       const response = await fetch(url);
 
@@ -64,11 +64,12 @@ async function request(e, input) {
       const anchorRequest = document.createElement('a');
       anchorRequest.textContent = entry + '. ' + input.toUpperCase();
       anchorRequest.href = `#${entry}`;
-      resultsNav.appendChild(anchorRequest)
+      resultsNav.appendChild(anchorRequest);
+      errText.textContent = '';
+      errText
       return result;
    } catch (error) {
-      // Falsy spell input:
-      const errText = document.querySelector('#errorText');
+      // Falsy spell input
       errText.textContent = 'Nothing found for your search. Please double-check your spelling and try again.'
       console.error(error)
    }
